@@ -1,0 +1,30 @@
+{
+  "name": "automation_backend_testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf build/",
+    "test": "npm run clean && npm run build && cd build/test/ && mocha --file get-booking-by-id-test.js"
+  },
+  "author": "Henrique Silveira",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@assertive-ts/core": "^2.1.0",
+    "@faker-js/faker": "^9.8.0",
+    "@types/chai": "^5.2.2",
+    "@types/mocha": "^10.0.10",
+    "@types/supertest": "^6.0.3",
+    "chai": "^5.2.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0",
+    "joi": "^17.13.3",
+    "json-joi-converter": "^17.13.7",
+    "mocha": "^11.4.0",
+    "rimraf": "^6.0.1",
+    "supertest": "^7.1.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
