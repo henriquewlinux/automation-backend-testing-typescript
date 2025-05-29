@@ -1,6 +1,12 @@
 {
+    "credencial": {
+        "admin": {
+            "username": "admin",
+            "password": "password123"
+        }
+    },
     "requestBody": {
-        "createBookin": {
+        "createBooking": {
             "firstname" : "Jim",
             "lastname" : "Brown",
             "totalprice" : 111,

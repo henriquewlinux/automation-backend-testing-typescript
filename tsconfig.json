@@ -6,13 +6,15 @@
         "target": "ESNext",
         "moduleResolution": "node",
         "resolveJsonModule": true,
-        "sourceMap": false,
+        "sourceMap": true,
         "declaration": false,
         "removeComments": false,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./**/*"
+        "./src/**/*"
     ],
     "exclude": [
         "node_modules",

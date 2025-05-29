@@ -1,9 +1,12 @@
 const request = require('supertest');
+require('@dotenvx/dotenvx').config()
+const url = process.env.URL
+console.log(url)
 
 export async function postLogin(credentials: any){
     return await 
-        request('https://restful-booker.herokuapp.com')
-        .post('/auth')
+        request(process.env.URL)
+        .post('auth')
         .set('Content-Type', 'application/json')
         .send({
             "username": credentials.username,
@@ -13,8 +16,8 @@ export async function postLogin(credentials: any){
 
 export async function getToken(credentials: any){
     let token: any = await 
-        request('https://restful-booker.herokuapp.com')
-        .post('/auth')
+        request(process.env.URL)
+        .post('auth')
         .set('Content-Type', 'application/json')
         .send({
             "username": credentials.username,

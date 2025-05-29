@@ -1,6 +1,6 @@
 import Joi = require('joi');
 
-export const getBookingSuccessSchema = Joi.object({
+export const updateBookingIdSuccessSchema = Joi.object({
     firstname: Joi.string().required(),
     lastname: Joi.string().required(),
     totalprice: [Joi.string(), Joi.number()],
@@ -11,5 +11,3 @@ export const getBookingSuccessSchema = Joi.object({
     }),
     additionalneeds: Joi.string().required()
 })
-
-//module.exports = {getBookingSuccessSchema};

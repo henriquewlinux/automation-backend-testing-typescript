@@ -1,7 +1,8 @@
 import { getToken, postLogin } from "../routes/login-route";
 import { expect } from "chai";
+import {loginSuccessSchema, loginFailSchema} from '../schema/login-schema'
 import Joi = require('joi');
-const schema = require('../schema/login-schema');
+require('@dotenvx/dotenvx').config()
 
 let response: any;
 let token: any;
@@ -10,13 +11,13 @@ let token: any;
 describe('Tests Login', async () => {
     it('Verify login success', async () =>{
         const credentials = {
-            "username": "admin",
-            "password": "password123"
+            "username": process.env.USERNAME,
+            "password": process.env.PASSWORD
         }
 
         response = await postLogin(credentials);
         expect(response.statusCode).to.eq(200);
-        Joi.assert(response.body, schema.loginSuccessSchema)
+        Joi.assert(response.body, loginSuccessSchema)
     })
 
     it('Verify login fail with password incorrect', async () =>{
@@ -28,7 +29,7 @@ describe('Tests Login', async () => {
         response = await postLogin(credentials);
         expect(response.statusCode).to.eq(200);
         expect(response.body.reason).to.eq('Bad credentials')
-        Joi.assert(response.body, schema.loginFailSchema)
+        Joi.assert(response.body, loginFailSchema)
     })
 
     it('Verify login fail with username incorrect', async () =>{
@@ -40,17 +41,6 @@ describe('Tests Login', async () => {
         response = await postLogin(credentials);
         expect(response.statusCode).to.eq(200);
         expect(response.body.reason).to.eq('Bad credentials')
-        Joi.assert(response.body, schema.loginFailSchema)
+        Joi.assert(response.body, loginFailSchema)
     })
-
-    // it('Get TOKEN', async () =>{
-    //     const credentials = {
-    //         "username": "admin",
-    //         "password": "password123"
-    //     }
-
-    //     token = await getToken(credentials);
-    //     console.log(token)
-    // })
-
 })

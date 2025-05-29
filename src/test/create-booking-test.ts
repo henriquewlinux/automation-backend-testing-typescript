@@ -1,22 +1,26 @@
 import { postCreateBooking } from "../routes/booking/post-create-booking-route";
 import { expect } from "chai";
+import {createBookingSuccessSchema} from '../schema/create-booking-schema';
+import { faker } from '@faker-js/faker';
 import Joi = require('joi');
-const schema = require('../schema/create-booking-schema');
-import * as test_data from '../data/test_data.json'
+import BookingBuilder from "../builder/booking-builder";
 
 let response: any;
 
 describe('Tests Create Booking', async () => {
     it('Verify create bookin success', async () =>{
 
-        const data = test_data.requestBody.createBookin
-        data.firstname = "Tom"
+        const firstName = faker.person.firstName()
+        const data = new BookingBuilder()
+            .withWriter(firstName, 'Silver')
+        
+        console.log(data)
         
         response = await postCreateBooking(data);
         expect(response.statusCode).to.eq(200);
-        expect(response.body.booking.firstname).to.eq('Tom');
+        expect(response.body.booking.firstname).to.eq(firstName);
 
-        Joi.assert(response.body, schema.createBookingSuccessSchema)
+        Joi.assert(response.body, createBookingSuccessSchema)
     })
 
 })
