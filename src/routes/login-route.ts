@@ -1,9 +1,8 @@
-const request = require('supertest');
+import request from "supertest"
+import { UserInterface } from "../interfaces/user-interface"
 require('@dotenvx/dotenvx').config()
-const url = process.env.URL
-console.log(url)
 
-export async function postLogin(credentials: any){
+export async function postLogin(credentials: UserInterface){
     return await 
         request(process.env.URL)
         .post('auth')
@@ -14,7 +13,7 @@ export async function postLogin(credentials: any){
         })
     }
 
-export async function getToken(credentials: any){
+export async function getToken(credentials: UserInterface){
     let token: any = await 
         request(process.env.URL)
         .post('auth')

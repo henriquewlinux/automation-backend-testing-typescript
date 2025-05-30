@@ -1,6 +1,7 @@
-const request = require('supertest');
+import request from "supertest"
+import Book from "../../builder/book"
 
-export async function putBooking(id: number, token: any, body: any){
+export async function putBook(id: number, token: string, body: Book){
     return await
         request('https://restful-booker.herokuapp.com')
         .put(`/booking/${id}`)

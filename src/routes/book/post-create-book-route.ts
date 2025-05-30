@@ -1,6 +1,7 @@
-const request = require('supertest');
+import Book from "../../builder/book";
+import request from "supertest"
 
-export async function postCreateBooking(body: any){
+export async function postCreateBook(body: Book){
     return await
         request('https://restful-booker.herokuapp.com')
         .post('/booking')

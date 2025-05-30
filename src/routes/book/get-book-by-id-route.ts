@@ -1,6 +1,6 @@
-const request = require('supertest');
+import request from "supertest"
 
-export async function getBookingId(id: number){
+export async function getBookId(id: number){
     return await
         request('https://restful-booker.herokuapp.com')
         .get(`/booking/${id}`)
