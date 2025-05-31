@@ -1,4 +1,4 @@
-import Joi = require('joi');
+import Joi from 'joi'
 
 export const loginSuccessSchema = Joi.object({
     token: [Joi.string(), Joi.number()],

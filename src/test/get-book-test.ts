@@ -3,10 +3,9 @@ import { getBookId } from "../routes/book/get-book-by-id-route";
 import { expect } from "chai";
 import {getBookSuccessSchema } from '../schema/get-book-schema';
 import { faker } from '@faker-js/faker';
-import Joi = require('joi');
+import Joi from 'joi'
 import BookBuilder from "../builder/book-builder";
 
-let response: any;
 let id: number;
 
 describe('Tests Get Book', async () => {
@@ -18,19 +17,19 @@ describe('Tests Get Book', async () => {
             .withWriter(firstName, 'Silver')
             .build()
 
-        response = await postCreateBook(data);
-        expect(response.statusCode).to.eq(200);
-        id = response.body.bookingid
+        const responsePostCreate = await postCreateBook(data);
+        expect(responsePostCreate.statusCode).to.eq(200);
+        id = responsePostCreate.body.bookingid
 
         // Act
-        response = await getBookId(id);
+        const responseGetBookId = await getBookId(id);
 
         // Assert
-        expect(response.statusCode).to.eq(200)
-        expect(response.body.firstname).to.eq(firstName);
+        expect(responseGetBookId.statusCode).to.eq(200)
+        expect(responseGetBookId.body.firstname).to.eq(firstName);
 
         // Assert Schema
-        Joi.assert(response.body, getBookSuccessSchema)
+        Joi.assert(responseGetBookId.body, getBookSuccessSchema)
     })
 
 })

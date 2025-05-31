@@ -1,4 +1,4 @@
-import Joi = require('joi');
+import Joi from 'joi'
 
 export const createBookSuccessSchema = Joi.object({
     bookingid: [Joi.string(), Joi.number()],

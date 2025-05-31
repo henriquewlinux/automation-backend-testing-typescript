@@ -3,13 +3,14 @@ import { expect } from "chai";
 import { putBook } from "../routes/book/put-update-book-id-route";
 import {updateBookSuccessSchema} from '../schema/update-book-schema'
 import { faker } from '@faker-js/faker';
-import Joi = require('joi');
+import Joi from 'joi'
 import BookBuilder from "../builder/book-builder";
 import { getUserToken } from "../helper/user-credentials";
 import { UserType } from "../enums/user-types";
-require('@dotenvx/dotenvx').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
-let response: any;
+
 let id: number;
 let token: string;
 
@@ -27,19 +28,19 @@ describe('Tests Put Book', async () => {
             .withWriter(firstName, 'Silver')
             .build()
         
-        response = await postCreateBook(data);
-        expect(response.statusCode).to.eq(200);
-        id = response.body.bookingid
+        const responsePostCreate = await postCreateBook(data);
+        expect(responsePostCreate.statusCode).to.eq(200);
+        id = responsePostCreate.body.bookingid
 
         // Act
-        response = await putBook(id, token, data);
+        const responsePutBook = await putBook(id, token, data);
 
         // Assert
-        expect(response.statusCode).to.eq(200)
-        expect(response.body.firstname).to.eq(firstName);
+        expect(responsePutBook.statusCode).to.eq(200)
+        expect(responsePutBook.body.firstname).to.eq(firstName);
 
         // Assert Schema
-        Joi.assert(response.body, updateBookSuccessSchema)
+        Joi.assert(responsePutBook.body, updateBookSuccessSchema)
     })
 
 })

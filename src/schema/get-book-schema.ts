@@ -1,4 +1,4 @@
-import Joi = require('joi');
+import Joi from 'joi'
 
 export const getBookSuccessSchema = Joi.object({
     firstname: Joi.string().required(),

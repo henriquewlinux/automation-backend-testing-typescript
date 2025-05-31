@@ -1,7 +1,8 @@
 import request from "supertest"
 import { UserInterface } from "../interfaces/user-interface"
 import HeadersBuilder from "../builder/headers-builder"
-require('@dotenvx/dotenvx').config()
+import dotenv from 'dotenv';
+dotenv.config();
 
 export async function postLogin(credentials: UserInterface) {
     const headers = new HeadersBuilder()
@@ -23,7 +24,7 @@ export async function getToken(credentials: UserInterface) {
         .withContentType('application/json')
         .build()
 
-    let token: any = await
+    let token = await
         request(process.env.URL)
             .post('auth')
             .set(headers)

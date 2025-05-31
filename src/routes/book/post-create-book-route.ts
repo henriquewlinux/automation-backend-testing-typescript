@@ -2,7 +2,7 @@ import Book from "../../builder/book";
 import request from "supertest"
 import HeadersBuilder from "../../builder/headers-builder";
 
-export async function postCreateBook(body: Book){
+export async function postCreateBook(body: Book) {
     const headers = new HeadersBuilder()
             .withContentType('application/json')
             .withAccept('application/json')

@@ -2,10 +2,9 @@ import { postCreateBook } from "../routes/book/post-create-book-route";
 import { expect } from "chai";
 import {createBookSuccessSchema} from '../schema/create-book-schema';
 import { faker } from '@faker-js/faker';
-import Joi = require('joi');
+import Joi from 'joi'
 import BookBuilder from "../builder/book-builder";
 
-let response: any;
 
 describe('Tests Create Book', async () => {
     it('Verify create book success', async () =>{
@@ -17,7 +16,7 @@ describe('Tests Create Book', async () => {
             .build()
         
         // Act
-        response = await postCreateBook(data);
+        const response = await postCreateBook(data);
 
         // Assert
         expect(response.statusCode).to.eq(200);
