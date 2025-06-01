@@ -1,6 +1,6 @@
 import { postLogin } from "../routes/login-route";
 import { expect } from "chai";
-import {loginSuccessSchema, loginFailSchema} from '../schema/login-schema'
+import {loginSuccessSchema, loginFailSchema} from '../schemas/login-schema'
 import Joi from 'joi'
 import dotenv from 'dotenv';
 dotenv.config();

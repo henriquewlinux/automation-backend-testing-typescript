@@ -1,11 +1,11 @@
 import { postCreateBook } from "../routes/book/post-create-book-route";
 import { expect } from "chai";
 import { putBook } from "../routes/book/put-update-book-id-route";
-import {updateBookSuccessSchema} from '../schema/update-book-schema'
+import {updateBookSuccessSchema} from '../schemas/update-book-schema'
 import { faker } from '@faker-js/faker';
 import Joi from 'joi'
-import BookBuilder from "../builder/book-builder";
-import { getUserToken } from "../helper/user-credentials";
+import BookBuilder from "../builders/book-builder";
+import { getUserToken } from "../helpers/user-credentials";
 import { UserType } from "../enums/user-types";
 import dotenv from 'dotenv';
 dotenv.config();

@@ -1,9 +1,9 @@
 import { postCreateBook } from "../routes/book/post-create-book-route";
 import { expect } from "chai";
-import {createBookSuccessSchema} from '../schema/create-book-schema';
+import {createBookSuccessSchema} from '../schemas/create-book-schema';
 import { faker } from '@faker-js/faker';
 import Joi from 'joi'
-import BookBuilder from "../builder/book-builder";
+import BookBuilder from "../builders/book-builder";
 
 
 describe('Tests Create Book', async () => {

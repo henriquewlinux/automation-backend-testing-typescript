@@ -1,6 +1,6 @@
-import Book from "../../builder/book";
+import Book from "../../builders/book";
 import request from "supertest"
-import HeadersBuilder from "../../builder/headers-builder";
+import HeadersBuilder from "../../builders/headers-builder";
 
 export async function postCreateBook(body: Book) {
     const headers = new HeadersBuilder()

@@ -1,6 +1,6 @@
 import request from "supertest"
-import Book from "../../builder/book"
-import HeadersBuilder from "../../builder/headers-builder"
+import Book from "../../builders/book"
+import HeadersBuilder from "../../builders/headers-builder"
 
 export async function putBook(id: number, token: string, body: Book){
     const headers = new HeadersBuilder()

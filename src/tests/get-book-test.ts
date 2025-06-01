@@ -1,10 +1,10 @@
 import { postCreateBook } from "../routes/book/post-create-book-route";
 import { getBookId } from "../routes/book/get-book-by-id-route";
 import { expect } from "chai";
-import {getBookSuccessSchema } from '../schema/get-book-schema';
+import {getBookSuccessSchema } from '../schemas/get-book-schema';
 import { faker } from '@faker-js/faker';
 import Joi from 'joi'
-import BookBuilder from "../builder/book-builder";
+import BookBuilder from "../builders/book-builder";
 
 let id: number;
 

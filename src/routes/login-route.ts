@@ -1,6 +1,6 @@
 import request from "supertest"
 import { UserInterface } from "../interfaces/user-interface"
-import HeadersBuilder from "../builder/headers-builder"
+import HeadersBuilder from "../builders/headers-builder"
 import dotenv from 'dotenv';
 dotenv.config();
 

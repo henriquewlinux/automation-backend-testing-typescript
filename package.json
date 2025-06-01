@@ -8,11 +8,10 @@
     "test": "npm run clean && npm run build && cd build/test/ && mocha *.js --config ../../.mocharc.js --timeout 25000",
     "lint": "eslint src/."
   },
-  "author": "Clovis Silveira",
+  "author": "Henrique Silveira",
   "license": "ISC",
   "description": "Automation Backend Testing using TypeScript",
   "dependencies": {
-    "@assertive-ts/core": "^2.1.0",
     "@dotenvx/dotenvx": "^1.44.1",
     "@faker-js/faker": "^9.8.0",
     "@types/chai": "^5.2.2",
@@ -21,7 +20,6 @@
     "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.33.0",
     "chai": "^5.2.0",
-    "cross-env": "^7.0.3",
     "dotenv": "^16.5.0",
     "eslint": "^9.27.0",
     "joi": "^17.13.3",

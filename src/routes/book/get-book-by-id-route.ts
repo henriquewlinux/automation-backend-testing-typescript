@@ -1,5 +1,5 @@
 import request from "supertest"
-import HeadersBuilder from "../../builder/headers-builder"
+import HeadersBuilder from "../../builders/headers-builder"
 
 export async function getBookId(id: number){
     const headers = new HeadersBuilder()
